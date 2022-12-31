@@ -2,7 +2,6 @@ name: Test Project
 on: push
 jobs:
   lint:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -18,6 +17,7 @@ jobs:
       - name: Deploy
         run: echo "Lint Pass"
   test:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Get code
